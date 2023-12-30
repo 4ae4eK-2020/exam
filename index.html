@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <title>Fake Shop</title>
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <div class="container m-0 p-3 mw-100">
+        <nav class="navbar m-0 navbar-expand-lg navbar-brand mw-100">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <h1 style="color:indigo;">Fake shop</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item">
+                  <a class="nav-link active text-light" aria-current="page" onclick="getCard('', 'card-field')">Home</a>
+                </li>
+                <li class="nav-item">
+                  <div class="dropdown">
+                    <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown"
+                      aria-expanded="false" style="font-size: 20px;">
+                      Категория
+                    </button>
+                    <ul class="dropdown-menu" id="category-menu">
+                    </ul>
+                  </div>
+            </div>
+            </li>
+            </ul>
+          </div>
+      </div>
+      </nav>
+    </div>
+
+    </div>
+  </header>
+  <main>
+    <div class="container mw-100 d-flex">
+      <div class="row row row-cols-4 gap-4 p-0 m-3" id="card-field" style="justify-content: space-between;"></div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="product-description">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body" id="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center" id="pagination">
+      </ul>
+    </nav>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

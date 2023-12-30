@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     getCategory()
 });
 
-function getCard(_category = "", _htmlId,_page = 0, _id = 0) {
+function getCard(_category = "", _htmlId, _page = 0, _id = 0) {
     const offset = 10
     console.log("Time to fetch")
     let url = ""
@@ -13,7 +13,6 @@ function getCard(_category = "", _htmlId,_page = 0, _id = 0) {
         else
             url = `https://fakestoreapi.com/products/${_id}`
     } else {
-
         url = `https://fakestoreapi.com/products/category/${_category}`
     }
 
@@ -23,15 +22,15 @@ function getCard(_category = "", _htmlId,_page = 0, _id = 0) {
     if (cardField != null) {
 
         const paginationField = document.getElementById('pagination')
-        while(paginationField.firstChild) {
+        while (paginationField.firstChild) {
             paginationField.firstChild.remove()
         }
 
         while (cardField.firstChild) {
             cardField.firstChild.remove()
         }
-    
-        
+
+
 
         fetch(url)
             .then(res => res.json())
@@ -40,19 +39,20 @@ function getCard(_category = "", _htmlId,_page = 0, _id = 0) {
                     create(json, true)
                 else {
                     console.log(typeof json)
-                    let start = _page*offset
-                    let end = start+offset
+                    let start = _page * offset
+                    let end = start + offset
                     for (let index = start; index < end; index++) {
                         const element = json[index];
-                        if(element !== undefined)
+                        if (element !== undefined)
                             create(element, false)
                     }
 
                     let pageCount = json.length / offset
-
-                    const pagination = document.getElementById("pagination")
-                    for (let index = 0; index < pageCount; index++) {
-                        pagination.appendChild(createPagination(pagination, index))
+                    if (pageCount > 1) {
+                        const pagination = document.getElementById("pagination")
+                        for (let index = 0; index < pageCount; index++) {
+                            pagination.appendChild(createPagination(pagination, index))
+                        }
                     }
                 }
             })
@@ -125,8 +125,8 @@ function getCard(_category = "", _htmlId,_page = 0, _id = 0) {
 
         let aPage = document.createElement('a')
         aPage.className = "page-link"
-        aPage.textContent = _num+1
-        aPage.onclick = function() { getCard("", "card-field", _num, 0) }
+        aPage.textContent = _num + 1
+        aPage.onclick = function () { getCard("", "card-field", _num, 0) }
 
         liPage.appendChild(aPage)
         return liPage
